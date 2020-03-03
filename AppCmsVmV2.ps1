@@ -11,7 +11,7 @@ msiexec /i "https://github.com/DOCOsoftDevelopmentTeam/Azure-ARM-Templates-Publi
 
 # Install Microsoft® SQL Server® 2012 Native Client - QFE
 # Source : https://www.microsoft.com/en-us/download/details.aspx?id=50402
-msiexec /i "https://github.com/DOCOsoftDevelopmentTeam/Azure-ARM-Templates-Public/raw/master/sqlncli.msi" /qn /norestart
+msiexec /i "https://github.com/DOCOsoftDevelopmentTeam/Azure-ARM-Templates-Public/raw/master/sqlncli.msi" IACCEPTSQLNCLILICENSETERMS=YES /qn /norestart
 
 # Install Microsoft Core XML Services (MSXML) 6.0
 # Source : https://www.microsoft.com/en-ie/download/details.aspx?id=3988
