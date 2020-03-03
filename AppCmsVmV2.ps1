@@ -3,16 +3,66 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 # Install Microsoft® SQL Server® CLR Types
 # Source : https://www.microsoft.com/en-ie/download/details.aspx?id=42295
-msiexec /i "https://github.com/DOCOsoftDevelopmentTeam/Azure-ARM-Templates-Public/raw/master/SQLSysClrTypes.msi" /qn /norestart
+$InstallMSI= "https://github.com/DOCOsoftDevelopmentTeam/Azure-ARM-Templates-Public/raw/master/SQLSysClrTypes.msi"
+msiexec /i $InstallMSI /qn /norestart
+Write-Output "Installing MS Report Viewer Runtime SQLSysClrTypes"
+#Wait untill MSI Installer is done  
+$StartInstallDate = (Get-Date)
+$SucessfullInstall = $Null
+do
+{
+    $SucessfullInstall = get-eventlog -logname application -after $StartInstallDate -Source "MSIInstaller" | where {$_.eventID -eq 11707} 
+    Start-Sleep -Seconds 60
+    Write-host "Waiting until $InstallMSI is installed"   
+}
+until ($SucessfullInstall)
 
 # Install Microsoft® SQL Server® 2014 Feature Pack
 # Source : https://www.microsoft.com/en-ie/download/details.aspx?id=42295
-msiexec /i "https://github.com/DOCOsoftDevelopmentTeam/Azure-ARM-Templates-Public/raw/master/SharedManagementObjects.msi" /qn /norestart
+$InstallMSI= "https://github.com/DOCOsoftDevelopmentTeam/Azure-ARM-Templates-Public/raw/master/SharedManagementObjects.msi"
+msiexec /i $InstallMSI /qn /norestart
+Write-Output "Installing SharedManagementObjects"
+#Wait untill MSI Installer is done  
+$StartInstallDate = (Get-Date)
+$SucessfullInstall = $Null
+do
+{
+    $SucessfullInstall = get-eventlog -logname application -after $StartInstallDate -Source "MSIInstaller" | where {$_.eventID -eq 11707} 
+    Start-Sleep -Seconds 60
+    Write-host "Waiting until $InstallMSI is installed"   
+}
+until ($SucessfullInstall)
+
 
 # Install Microsoft® SQL Server® 2012 Native Client - QFE
 # Source : https://www.microsoft.com/en-us/download/details.aspx?id=50402
-msiexec /i "https://github.com/DOCOsoftDevelopmentTeam/Azure-ARM-Templates-Public/raw/master/sqlncli.msi" IACCEPTSQLNCLILICENSETERMS=YES /qn /norestart
+$InstallMSI= "https://github.com/DOCOsoftDevelopmentTeam/Azure-ARM-Templates-Public/raw/master/sqlncli.msi"
+msiexec /i $InstallMSI IACCEPTSQLNCLILICENSETERMS=YES /qn /norestart
+Write-Output "Installing sqlncli"
+#Wait untill MSI Installer is done  
+$StartInstallDate = (Get-Date)
+$SucessfullInstall = $Null
+do
+{
+    $SucessfullInstall = get-eventlog -logname application -after $StartInstallDate -Source "MSIInstaller" | where {$_.eventID -eq 11707} 
+    Start-Sleep -Seconds 60
+    Write-host "Waiting until $InstallMSI is installed"   
+}
+until ($SucessfullInstall)
 
 # Install Microsoft Core XML Services (MSXML) 6.0
 # Source : https://www.microsoft.com/en-ie/download/details.aspx?id=3988
-msiexec /i "https://github.com/DOCOsoftDevelopmentTeam/Azure-ARM-Templates-Public/raw/master/msxml6_x64.msi" /qn /norestart
+$InstallMSI= "https://github.com/DOCOsoftDevelopmentTeam/Azure-ARM-Templates-Public/raw/master/msxml6_x64.msi"
+msiexec /i $InstallMSI /qn /norestart
+Write-Output "Installing msxml6_x64"
+#Wait untill MSI Installer is done  
+$StartInstallDate = (Get-Date)
+$SucessfullInstall = $Null
+do
+{
+    $SucessfullInstall = get-eventlog -logname application -after $StartInstallDate -Source "MSIInstaller" | where {$_.eventID -eq 11707} 
+    Start-Sleep -Seconds 60
+    Write-host "Waiting until $InstallMSI is installed"   
+}
+until ($SucessfullInstall)
+
