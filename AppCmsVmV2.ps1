@@ -1,5 +1,14 @@
-# Install IIS
-Install-WindowsFeature -name Web-Server -IncludeManagementTools
+# Create a directory to store files required for setup
+$setupFilePath = "D:\DOCOsoft\temp\SetupFiles"
+new-Item -ItemType directory -Path $setupFilePath
+
+# Download files to setup directory
+$windowsFeaturesConfigFileName = "WindowsFeaturesConfig.xml"
+$` = [IO.Path]::Combine($setupFilePath, $windowsFeaturesConfigFileName)
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/DOCOsoftDevelopmentTeam/Azure-ARM-Templates-Public/master/AppCmsVmV2WindowsConfig.xml" -OutFile $fullWindowsFeaturesConfigFileNamePath
+
+# Install Windows features
+Install-WindowsFeature -ConfigurationFilePath $fullWindowsFeaturesConfigFileNamePath
 
 # Install Microsoft® SQL Server® CLR Types
 # Source : https://www.microsoft.com/en-ie/download/details.aspx?id=42295
