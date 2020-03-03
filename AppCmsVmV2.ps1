@@ -4,7 +4,7 @@ new-Item -ItemType directory -Path $setupFilePath
 
 # Download files to setup directory
 $windowsFeaturesConfigFileName = "WindowsFeaturesConfig.xml"
-$` = [IO.Path]::Combine($setupFilePath, $windowsFeaturesConfigFileName)
+$fullWindowsFeaturesConfigFileNamePath = [IO.Path]::Combine($setupFilePath, $windowsFeaturesConfigFileName)
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/DOCOsoftDevelopmentTeam/Azure-ARM-Templates-Public/master/AppCmsVmV2WindowsConfig.xml" -OutFile $fullWindowsFeaturesConfigFileNamePath
 
 # Install Windows features
