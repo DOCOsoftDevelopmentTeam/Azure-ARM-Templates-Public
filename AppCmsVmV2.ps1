@@ -10,6 +10,9 @@ Invoke-WebRequest -Uri "https://raw.githubusercontent.com/DOCOsoftDevelopmentTea
 # Install Windows features
 Install-WindowsFeature -ConfigurationFilePath $fullWindowsFeaturesConfigFileNamePath
 
+# Configure DTC
+Set-DtcNetworkSetting -DtcName "Local" -AuthenticationLevel "NoAuth" -InboundTransactionsEnabled $True -OutboundTransactionsEnabled $True -RemoteClientAccessEnabled $True -RemoteAdministrationAccessEnabled $True -XATransactionsEnabled $True
+
 # Install Microsoft® SQL Server® CLR Types
 # Source : https://www.microsoft.com/en-ie/download/details.aspx?id=42295
 $InstallMSI= "https://github.com/DOCOsoftDevelopmentTeam/Azure-ARM-Templates-Public/raw/master/SQLSysClrTypes.msi"
