@@ -11,7 +11,7 @@ Invoke-WebRequest -Uri "https://raw.githubusercontent.com/DOCOsoftDevelopmentTea
 Install-WindowsFeature -ConfigurationFilePath $fullWindowsFeaturesConfigFileNamePath
 
 # Configure DTC
-Set-DtcNetworkSetting -DtcName "Local" -AuthenticationLevel "NoAuth" -InboundTransactionsEnabled $True -OutboundTransactionsEnabled $True -RemoteClientAccessEnabled $True -RemoteAdministrationAccessEnabled $True -XATransactionsEnabled $True
+Set-DtcNetworkSetting -Confirm:$False -DtcName "Local" -AuthenticationLevel "NoAuth" -InboundTransactionsEnabled $True -OutboundTransactionsEnabled $True -RemoteClientAccessEnabled $True -RemoteAdministrationAccessEnabled $True -XATransactionsEnabled $True
 
 # Install Microsoft® SQL Server® CLR Types
 # Source : https://www.microsoft.com/en-ie/download/details.aspx?id=42295
